@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: kingshot-proxy-clean-main
+    env: node
+    rootDir: Kingshot-Proxy
+    buildCommand: npm install
+    startCommand: node index.js
