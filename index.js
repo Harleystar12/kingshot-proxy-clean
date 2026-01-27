@@ -19,3 +19,18 @@ app.get("/player", async (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port);
+
+app.get("/gift-codes", async (req, res) => { 
+  try { 
+    const response = await fetch("https://kingshot.net/api/gift-codes"); 
+    const data = await response.json(); 
+    res.json(data); 
+  } catch (error) { 
+    console.error("Gift Codes Error:", error);
+    res.status(500).json({ error: "Failed to fetch gift codes" }); 
+  } 
+}); 
+// Server start 
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => { console.log(`Proxy running on port ${PORT}`); 
+});
